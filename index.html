@@ -20,6 +20,8 @@
       --sage:#e9f3eb;
       --amber:#f5b84b;
       --red:#c94a37;
+      --blue:#294b77;
+      --cream:#fff8e8;
       --shadow:0 22px 60px rgba(24,42,32,.13);
     }
 
@@ -29,13 +31,15 @@
       margin:0;
       font-family:Inter,Arial,sans-serif;
       color:var(--ink);
-      background:var(--paper);
+      background:
+        linear-gradient(180deg,#fffdf7 0,#fbfaf6 380px),
+        var(--paper);
       letter-spacing:0;
     }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .topbar{
-      background:#13241b;
+      background:linear-gradient(90deg,#13241b,#1f4b34,#13241b);
       color:#edf8f0;
       font-size:13px;
       font-weight:700;
@@ -70,10 +74,17 @@
     }
     .brand strong{font-size:22px}
     .brand span{font-size:11px;color:var(--muted);font-weight:800;text-transform:uppercase}
-    .nav-links{display:flex;gap:24px;font-size:14px;font-weight:800;color:#334039}
+    .nav-links{display:flex;gap:24px;font-size:14px;font-weight:800;color:#334039;align-items:center}
+    .nav-cta{
+      border:1px solid #bdd7c5;
+      background:#f2faf4;
+      color:var(--green-dark);
+      border-radius:999px;
+      padding:10px 13px;
+    }
     .container{width:min(1180px,100%);margin:auto;padding:0 18px}
     .hero{
-      padding:56px 0 34px;
+      padding:64px 0 34px;
       background:
         linear-gradient(180deg,rgba(233,243,235,.85),rgba(251,250,246,0) 74%),
         radial-gradient(circle at 82% 16%,rgba(31,122,77,.14),transparent 34%);
@@ -103,6 +114,7 @@
       line-height:1.02;
       letter-spacing:0;
     }
+    .hero h1 span{color:var(--green-dark)}
     .hero p{
       margin:0;
       color:#526158;
@@ -111,6 +123,23 @@
       max-width:660px;
     }
     .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+    .hero-kpis{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+      margin-top:24px;
+      max-width:660px;
+    }
+    .hero-kpi{
+      background:rgba(255,255,255,.78);
+      border:1px solid var(--line);
+      border-radius:8px;
+      padding:12px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.35;
+    }
+    .hero-kpi b{display:block;color:var(--ink);font-size:18px;margin-bottom:3px}
     .btn{
       min-height:52px;
       display:inline-flex;
@@ -134,6 +163,23 @@
       border-radius:12px;
       padding:12px;
       box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"Favori 2026";
+      position:absolute;
+      top:22px;
+      right:-44px;
+      z-index:2;
+      width:170px;
+      transform:rotate(35deg);
+      background:var(--amber);
+      color:#2d2109;
+      text-align:center;
+      padding:8px 0;
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
     }
     .hero-card img{
       width:100%;
@@ -168,6 +214,12 @@
       color:var(--muted);
     }
     .trust-item b{display:block;color:var(--ink);font-size:18px;margin-bottom:4px}
+    .disclosure{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
     section{padding:58px 0}
     .section-head{
       display:flex;
@@ -203,6 +255,18 @@
       font-weight:900;
       color:var(--green-dark);
     }
+    .rank-label{
+      display:inline-flex;
+      width:max-content;
+      margin-bottom:8px;
+      border-radius:999px;
+      padding:7px 10px;
+      background:#eff8f1;
+      color:var(--green-dark);
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+    }
     .company{
       display:grid;
       grid-template-columns:128px minmax(0,1fr) 132px;
@@ -235,6 +299,18 @@
       color:var(--muted);
       font-size:13px;
       line-height:1.45;
+    }
+    .deal-tag{
+      display:inline-flex;
+      width:max-content;
+      margin-top:10px;
+      border-radius:999px;
+      padding:7px 10px;
+      background:var(--cream);
+      border:1px solid #f2d58a;
+      color:#7a5200;
+      font-size:12px;
+      font-weight:900;
     }
     .product-thumb{
       background:#f5f8f5;
@@ -312,6 +388,64 @@
     }
     .cta-zone{display:grid;gap:10px}
     .small-link{font-size:12px;color:var(--muted);text-align:center;font-weight:800}
+    .why-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .why-panel{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:24px;
+      box-shadow:0 12px 32px rgba(24,42,32,.07);
+    }
+    .why-panel.highlight{
+      background:linear-gradient(135deg,#173522,#235f3e);
+      color:#fff;
+      overflow:hidden;
+      position:relative;
+    }
+    .why-panel.highlight p{color:#dcece2}
+    .why-panel h3{margin:0 0 10px;font-size:24px}
+    .why-panel p{margin:0;color:var(--muted);line-height:1.7}
+    .metric-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:18px;
+    }
+    .metric{
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.08);
+      border-radius:8px;
+      padding:14px;
+      font-size:13px;
+      color:#e5f3e9;
+    }
+    .metric b{display:block;color:#fff;font-size:22px;margin-bottom:4px}
+    .buyer-list{display:grid;gap:10px;margin-top:14px}
+    .buyer-item{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color:#304139;
+      line-height:1.55;
+      font-size:14px;
+      font-weight:700;
+    }
+    .buyer-item span{
+      flex:0 0 28px;
+      width:28px;
+      height:28px;
+      display:grid;
+      place-items:center;
+      border-radius:999px;
+      background:#edf7ef;
+      color:var(--green-dark);
+      font-weight:900;
+    }
     .expert{
       display:grid;
       grid-template-columns:330px 1fr;
@@ -376,6 +510,31 @@
       overflow:hidden;
       box-shadow:0 10px 28px rgba(24,42,32,.06);
     }
+    .method-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+    .method-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 10px 26px rgba(24,42,32,.05);
+    }
+    .method-card b{
+      display:grid;
+      place-items:center;
+      width:42px;
+      height:42px;
+      border-radius:10px;
+      background:#edf7ef;
+      color:var(--green-dark);
+      margin-bottom:12px;
+      font-size:18px;
+    }
+    .method-card h3{margin:0 0 8px;font-size:17px}
+    .method-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
     .compare-table th,.compare-table td{
       padding:16px;
       border-bottom:1px solid var(--line);
@@ -427,6 +586,34 @@
     }
     .editorial h3{margin:0 0 8px}
     .editorial p{margin:0;color:var(--muted);line-height:1.65;font-size:14px}
+    .faq-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .faq-item{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:20px;
+    }
+    .faq-item h3{margin:0 0 8px;font-size:17px}
+    .faq-item p{margin:0;color:var(--muted);line-height:1.65;font-size:14px}
+    .final-cta{
+      background:
+        linear-gradient(135deg,rgba(20,92,57,.94),rgba(19,36,27,.96)),
+        #13241b;
+      color:#fff;
+      border-radius:12px;
+      padding:28px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      align-items:center;
+      box-shadow:var(--shadow);
+    }
+    .final-cta h2{margin:0 0 8px}
+    .final-cta p{margin:0;color:#dce8df;line-height:1.6}
     footer{
       margin-top:38px;
       background:#13241b;
@@ -455,11 +642,12 @@
 
     @media (max-width:940px){
       .hero-grid,.expert,.placeholder{grid-template-columns:1fr}
+      .why-grid,.final-cta{grid-template-columns:1fr}
       .trust-row{grid-template-columns:1fr 1fr}
       .rank-card{grid-template-columns:64px 1fr}
       .company{grid-template-columns:118px minmax(0,1fr) 118px}
       .score,.cta-zone{grid-column:2}
-      .checks,.editorial{grid-template-columns:1fr}
+      .checks,.editorial,.method-grid{grid-template-columns:1fr 1fr}
       .nav-links{display:none}
     }
 
@@ -469,6 +657,7 @@
       .brand strong{font-size:20px}
       .hero{padding-top:38px}
       .hero-actions{display:grid}
+      .hero-kpis,.metric-grid,.faq-grid,.method-grid{grid-template-columns:1fr}
       .btn{width:100%}
       .trust-row{grid-template-columns:1fr}
       .rank-card{grid-template-columns:1fr;padding:14px}
@@ -497,7 +686,9 @@
       <div class="nav-links">
         <a href="#classement">Classement</a>
         <a href="#expert">Avis expert</a>
+        <a href="#methode">Methode</a>
         <a href="#comparatif">Tableau</a>
+        <a class="nav-cta" href="https://kavehomefr.com/collections/abris-de-jardin">Voir le n°1</a>
       </div>
     </div>
   </nav>
@@ -508,8 +699,13 @@
         <div class="hero-grid">
           <div>
             <span class="eyebrow">Selection jardin haut de gamme</span>
-            <h1>Les meilleurs abris de jardin modernes compares</h1>
-            <p>Notre redaction a passe au crible les offres disponibles en France pour identifier les abris les plus fiables, les plus lisibles et les plus rassurants avant achat.</p>
+            <h1>Les meilleurs abris de jardin modernes <span>compares</span></h1>
+            <p>Notre redaction a passe au crible les offres disponibles en France pour identifier les abris les plus fiables, les plus lisibles et les plus rassurants avant achat. L'objectif : vous aider a choisir vite, sans passer la soiree a ouvrir quinze onglets.</p>
+            <div class="hero-kpis">
+              <div class="hero-kpi"><b>9.8/10</b>Kave Home en tete de notre selection</div>
+              <div class="hero-kpi"><b>3 sites</b>Analyse comparative claire et lisible</div>
+              <div class="hero-kpi"><b>4 criteres</b>Prix, confiance, offre, experience</div>
+            </div>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#classement">Voir le classement</a>
               <a class="btn btn-secondary" href="https://kavehomefr.com/collections/abris-de-jardin">Voir notre choix n°1</a>
@@ -522,11 +718,12 @@
         </div>
 
         <div class="trust-row" aria-label="Criteres de comparaison">
-          <div class="trust-item"><b>7.1 m2</b>Surface utile pour rangement familial</div>
-          <div class="trust-item"><b>4 criteres</b>Finitions, confiance, clarté, rapport qualite-prix</div>
-          <div class="trust-item"><b>2026</b>Comparatif mis en page pour MonAvisConso</div>
-          <div class="trust-item"><b>Expert jardin</b>Analyse editoriale orientee usage reel</div>
+          <div class="trust-item"><b>Prix</b>Offres, reductions visibles et valeur percue</div>
+          <div class="trust-item"><b>Confiance</b>Signaux de transparence et rassurance</div>
+          <div class="trust-item"><b>Produit</b>Photos, details et clarte de la fiche</div>
+          <div class="trust-item"><b>Achat</b>Parcours, conditions et points a verifier</div>
         </div>
+        <p class="disclosure">Comparatif editorial. Les notes refletent notre lecture des pages publiques, des informations disponibles et de l'experience d'achat percue au moment de la mise a jour.</p>
       </div>
     </section>
 
@@ -545,10 +742,12 @@
                 <img src="https://kavehomefr.com/cdn/shop/files/Capture_d_ecran_2026-06-22_a_17.03.25.png?height=36&v=1782119016" alt="Logo Kave Home">
               </div>
               <div>
+                <span class="rank-label">Favori MonAvisConso</span>
                 <h3>Kave Home</h3>
                 <p>Favori de notre selection abris de jardin</p>
                 <span class="product-name">Selection abri de jardin moderne - offres du moment</span>
                 <span class="seller-note">Tres bon niveau de presentation, prix attractifs et reductions visibles en ce moment.</span>
+                <span class="deal-tag">Reductions du moment</span>
               </div>
               <div class="product-thumb">
                 <img src="https://kavehomefr.com/cdn/shop/files/Captured_ecran2026-07-02a07.20.28.png?v=1782969649&width=1600" alt="Produit Kave Home abri de jardin">
@@ -655,6 +854,33 @@
       </div>
     </section>
 
+    <section>
+      <div class="container">
+        <div class="why-grid">
+          <div class="why-panel highlight">
+            <span class="eyebrow">Pourquoi Kave Home passe n°1</span>
+            <h3>Le meilleur equilibre entre presentation, prix et confiance d'achat.</h3>
+            <p>Kave Home prend la tete grace a une page plus attractive, des offres promotionnelles mises en avant et une impression generale plus rassurante pour un achat important comme un abri de jardin.</p>
+            <div class="metric-grid">
+              <div class="metric"><b>9.8</b>Indice MonAvisConso</div>
+              <div class="metric"><b>Top</b>Presentation produit</div>
+              <div class="metric"><b>Fort</b>Interet prix actuel</div>
+            </div>
+          </div>
+          <div class="why-panel">
+            <h3>Ce que nous regardons avant de recommander</h3>
+            <p>Un bon site ne doit pas seulement afficher une jolie photo : il doit aider a comprendre l'offre, rassurer avant paiement et limiter les zones d'ombre.</p>
+            <div class="buyer-list">
+              <div class="buyer-item"><span>1</span>Des photos nettes et une fiche facile a lire.</div>
+              <div class="buyer-item"><span>2</span>Des conditions d'achat accessibles avant de commander.</div>
+              <div class="buyer-item"><span>3</span>Une coherence entre prix, presentation et promesse produit.</div>
+              <div class="buyer-item"><span>4</span>Des signaux de confiance suffisamment visibles pour acheter sereinement.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="expert">
       <div class="container">
         <div class="expert">
@@ -673,6 +899,37 @@
               <div class="check">Confiance avant achat</div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="methode">
+      <div class="container">
+        <div class="section-head">
+          <h2>Notre methode de notation</h2>
+          <p>Nous utilisons une grille simple, orientee acheteur, pour eviter les classements flous et les recommandations sorties de nulle part.</p>
+        </div>
+        <div class="method-grid">
+          <article class="method-card">
+            <b>1</b>
+            <h3>Clarte produit</h3>
+            <p>Photos, nom du produit, surface, finitions, comprehension immediate de l'offre.</p>
+          </article>
+          <article class="method-card">
+            <b>2</b>
+            <h3>Confiance percue</h3>
+            <p>Mentions, conditions visibles, coherence du site et signaux de rassurance.</p>
+          </article>
+          <article class="method-card">
+            <b>3</b>
+            <h3>Interet prix</h3>
+            <p>Reduction visible, rapport qualite-prix percu et attractivite du moment.</p>
+          </article>
+          <article class="method-card">
+            <b>4</b>
+            <h3>Experience achat</h3>
+            <p>Navigation, appels a l'action, informations utiles avant paiement et lisibilite mobile.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -753,6 +1010,45 @@
             <h3>Usage jardin</h3>
             <p>Un bon abri doit rester pratique pour stocker outils, mobilier et materiel saisonnier sans sacrifier l'aspect exterieur.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Questions frequentes</h2>
+          <p>Les points a verifier avant de commander un abri de jardin en ligne.</p>
+        </div>
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h3>Pourquoi Kave Home est-il premier ?</h3>
+            <p>Parce que son offre ressort comme la plus lisible et la plus attractive dans notre lecture actuelle, notamment grace a la presentation produit et aux reductions mises en avant.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Smart Garden reste-t-il recommande ?</h3>
+            <p>Oui. Smart Garden conserve une excellente note et reste une tres bonne alternative premium, surtout pour son abri moderne 7.1 m2.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Que faut-il verifier avant achat ?</h3>
+            <p>Les delais de livraison, les frais eventuels, les conditions de retour, les garanties et les dimensions exactes du produit.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Le classement peut-il changer ?</h3>
+            <p>Oui. Si les offres, les prix, les conditions ou les signaux de confiance evoluent, le classement peut etre mis a jour.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="final-cta">
+          <div>
+            <h2>Notre choix actuel : Kave Home</h2>
+            <p>Pour comparer directement les modeles disponibles et profiter des offres mises en avant, consultez la collection abris de jardin.</p>
+          </div>
+          <a class="btn btn-primary" href="https://kavehomefr.com/collections/abris-de-jardin">Voir la selection Kave Home</a>
         </div>
       </div>
     </section>
